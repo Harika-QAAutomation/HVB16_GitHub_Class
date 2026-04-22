@@ -48,3 +48,44 @@ ssh -T git@github.com
 
 <img width="685" height="359" alt="image" src="https://github.com/user-attachments/assets/d44e8574-d968-4506-a710-5b2ad54dcc7b" />
 
+---
+---
+```
+
+cmdkey /add:github.com /user:hm185111_ncrvoyix /pass:<Token>
+
+git clone <GIT URL.git>
+
+```
+<img width="852" height="581" alt="image" src="https://github.com/user-attachments/assets/d6d8ebbb-5465-42e2-85a8-ee8358872aac" />
+---
+
+
+```
+
+param (
+    [string]$RepoPath = "C:\test\AMCAutomation",
+    [string]$Branch = "Regression_Crewlink"
+)
+
+Set-Location $RepoPath
+
+# Clean working directory
+git reset --hard
+git clean -fd
+
+# Get latest code
+git fetch origin
+git checkout $Branch
+git pull origin $Branch
+
+Write-Host "? AMCAutomation repo updated from branch '$Branch'"
+
+```
+
+```
+
+powershell -ExecutionPolicy Bypass -File C:\Update-AMCAutomation.ps1 -Branch Regression_Crewlink
+```
+<img width="841" height="158" alt="image" src="https://github.com/user-attachments/assets/aaaa89c7-9d02-4cc0-848d-a8ae2283000f" />
+
